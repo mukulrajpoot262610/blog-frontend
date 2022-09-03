@@ -49,9 +49,9 @@ export default function Navbar() {
         </div>
         {isAuth ? (
           <div className="flex items-center gap-4">
-            <Link href="/profile">
+            <Link href="/create">
               <a className="text-xs font-bold border border-blue-300 btn btn-ghost hover:bg-blue-50 btn-sm">
-                Profile
+                Create Post
               </a>
             </Link>
             <Dropdown user={user} handleLogout={handleLogout} />
@@ -138,10 +138,10 @@ function Dropdown({ user, handleLogout }) {
                 </CustomLink>
               </Menu.Item>
               <Menu.Item>
-                <CustomLink href="/explore">
+                <CustomLink href="/create">
                   <a className="flex items-center p-4 py-3 gap-x-4 hover:bg-blue-50 active:bg-blue-300 rounded-xl">
                     <FiBook className="text-base font-bold" />
-                    Explore Courses
+                    Create Blog
                   </a>
                 </CustomLink>
               </Menu.Item>
