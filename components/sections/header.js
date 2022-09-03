@@ -19,14 +19,12 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="relative w-full h-full p-2 mt-10 lg:mt-0 md:w-11/12 lg:w-1/2">
-        <div className="w-full h-5/6 rounded-3xl bg-blue-50">
-          <img
-            alt="overlay"
-            src="/hero.webp"
-            className="object-cover object-top w-full h-64 md:h-96 lg:h-full rounded-3xl"
-          />
-        </div>
+      <div className="relative w-full h-full p-2 mt-10 md:w-11/12 lg:w-1/2">
+        <img
+          alt="overlay"
+          src="/hero.gif"
+          className="object-cover object-top w-full h-64 md:h-96 lg:h-full rounded-3xl"
+        />
       </div>
     </header>
   );

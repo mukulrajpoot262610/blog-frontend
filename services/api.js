@@ -22,4 +22,7 @@ export const verifyMagicToken = (data) =>
 export const verifyEmail = (data) => api.post('/api/verify-email', data);
 export const requestEmailVerification = () => api.get('/api/verify-email');
 
+export const createPost = (data) => api.post('/api/articles', data);
+export const getAllPost = () => api.get('/api/articles');
+
 export default api;
