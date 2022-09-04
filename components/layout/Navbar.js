@@ -129,14 +129,14 @@ function Dropdown({ user, handleLogout }) {
               </div>
             </div>
             <div className="px-1 py-1 ">
-              <Menu.Item>
+              {/* <Menu.Item>
                 <CustomLink href="/dashboard">
                   <a className="flex items-center p-4 py-3 gap-x-4 hover:bg-blue-50 active:bg-blue-300 rounded-xl">
                     <MdOutlineDashboard className="text-base font-bold" />
                     Dashboard
                   </a>
                 </CustomLink>
-              </Menu.Item>
+              </Menu.Item> */}
               <Menu.Item>
                 <CustomLink href="/create">
                   <a className="flex items-center p-4 py-3 gap-x-4 hover:bg-blue-50 active:bg-blue-300 rounded-xl">
