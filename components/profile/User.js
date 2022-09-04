@@ -10,6 +10,7 @@ import { ImMail4 } from 'react-icons/im';
 import { SiHashnode } from 'react-icons/si';
 
 export default function User({ user, profile }) {
+  console.log({ profile });
   return (
     <div className="sticky flex flex-col p-4 py-12 bg-white rounded-xl top-24">
       <section className="flex justify-center">
@@ -17,7 +18,7 @@ export default function User({ user, profile }) {
           id="profile-pic"
           className="w-32 h-32 overflow-hidden bg-white rounded-full ring-2 ring-blue-500 ring-offset-4"
         >
-          <img src={user?.avatar ? user?.avatar : '/profile.png'} />
+          <img src={profile?.avatar ? profile?.avatar : '/profile.jpg'} />
         </div>
       </section>
 
