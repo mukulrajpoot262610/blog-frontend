@@ -1,12 +1,26 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PostCard from '../components/card/postCard';
+import { seacrh } from '../services/api';
 
 const Search = () => {
   const router = useRouter();
   const query = router.query.search;
   const [key, setKey] = useState();
+  const [posts, setPosts] = useState([]);
 
-  console.log(router.query);
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await seacrh({ title: query });
+        setPosts(res.data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetch();
+  }, [query]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,9 +30,9 @@ const Search = () => {
   return (
     <div className="w-full grid gap-4 grid-cols-12 pt-24">
       <div className="col-span-8 h-full">
-        {/* {posts.length > 0 &&
-                    posts.map((e) => <PostCard key={e._id} data={e} />)} */}
         <h2 className="text-5xl font-bold">Results for {query}</h2>
+        {posts.length > 0 &&
+          posts.map((e) => <PostCard key={e._id} data={e} />)}
       </div>
       <div className="col-span-4 h-full">
         <div className="sticky top-24 bg-white p-8 rounded-lg">

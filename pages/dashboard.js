@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PostCard from '../components/card/postCard';
+import { getAllPost } from '../services/api';
 
 const Dashboard = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const { data } = await getAllPost();
+        setPosts(data.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetch();
+  }, []);
+
   return (
     <div className="pt-24 overflow-hidden">
       <h1 className="font-bold uppercase text-lg">Analytics Summary</h1>
@@ -44,7 +61,10 @@ const Dashboard = () => {
         <div className="col-span-12 lg:col-span-9">
           <h1 className="font-bold uppercase text-lg">Post</h1>
 
-          <div></div>
+          <div>
+            {posts.length > 0 &&
+              posts.map((e) => <PostCard key={e._id} data={e} />)}
+          </div>
         </div>
       </div>
     </div>
