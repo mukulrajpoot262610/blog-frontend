@@ -1,7 +1,7 @@
-import Loader from 'components/layout/Loader';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Loader from '../components/layout/Loader';
 
 export const ProtectedRoute = ({ children }) => {
   const [login, setLogin] = useState(false);

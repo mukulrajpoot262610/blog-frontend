@@ -40,7 +40,7 @@ const Login = () => {
         <a className="flex flex-col items-center gap-2 mb-6">
           <img alt="img" src="/logo.png" className="object-contain w-24 h-12" />
           <h1 className="text-3xl font-bold tracking-tight text-center uppercase cursor-pointer">
-            Welcome Back to <span className="text-blue-500">ME</span>Blog
+            Welcome Back to SUDO
           </h1>
         </a>
 

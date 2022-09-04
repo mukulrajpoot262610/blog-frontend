@@ -17,9 +17,7 @@ const Layout = ({ children }) => {
   ) : (
     <>
       {!path.includes('auth') && <Navbar />}
-      <main className="w-11/12 min-h-screen mx-auto lg:w-10/12">
-        {children}
-      </main>
+      <main className="container min-h-screen">{children}</main>
       <Toaster />
       {!path.includes('auth') && <Footer />}
     </>
