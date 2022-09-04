@@ -12,3 +12,7 @@ body {
 .container {
   @apply max-w-[1440] mx-auto px-4;
 }
+
+.custom-overlay {
+  @apply bg-white rounded-xl border border-opacity-5 border-black;
+}

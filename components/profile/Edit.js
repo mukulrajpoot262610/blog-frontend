@@ -4,13 +4,11 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { updateProfile } from '../../services/api';
-import Editor from '../editor';
 
 export default function Edit({ profile }) {
   const { user } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const [about, setAbout] = useState(profile?.about || '');
-  const [hashnode, setHashnode] = useState(profile?.hashnode || '');
   const [linkedin, setLinkedin] = useState(profile?.linkedin || '');
   const [github, setGithub] = useState(profile?.github || '');
 
@@ -22,7 +20,7 @@ export default function Edit({ profile }) {
     try {
       await updateProfile({ ...data, about });
       toast.success('profile updated');
-      Router.reload();
+      // Router.reload();
     } catch (err) {
       toast.error(err?.response?.data?.msg);
     } finally {
@@ -37,7 +35,11 @@ export default function Edit({ profile }) {
           <label className="block text-xs font-bold text-blue-500 uppercase">
             about
           </label>
-          <Editor data={about} setData={setAbout} />
+          <textarea
+            className="w-full h-40 resize-none bg-base-200 textarea"
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+          />
         </div>
         <div className="space-y-2">
           <label className="block text-xs font-bold text-blue-500 uppercase">
@@ -63,18 +65,18 @@ export default function Edit({ profile }) {
             className="w-full input input-bordered"
           />
         </div>
-        <div className="space-y-2">
-          <label className="block text-xs font-bold text-blue-500 uppercase">
-            hashnode username
-          </label>
-          <input
-            type="text"
-            {...register('hashnode')}
-            value={hashnode}
-            onChange={(e) => setHashnode(e.target.hashnode)}
-            className="w-full input input-bordered"
-          />
-        </div>
+        {/* <div className="space-y-2">
+            <label className="block text-xs font-bold text-blue-500 uppercase">
+              hashnode username
+            </label>
+            <input
+              type="text"
+              {...register('hashnode')}
+              value={hashnode}
+              onChange={(e) => setHashnode(e.target.hashnode)}
+              className="w-full input input-bordered"
+            />
+          </div> */}
         <div className="flex justify-end">
           <button className="btn btn-primary">
             {loading ? 'updating' : 'update'}

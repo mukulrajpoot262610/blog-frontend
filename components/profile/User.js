@@ -1,17 +1,17 @@
 import React from 'react';
-import { SiHashnode } from 'react-icons/si';
 import {
   FaGithub,
+  FaGlobe,
   FaLinkedinIn,
   FaStackOverflow,
-  FaGlobe,
   FaTwitter,
 } from 'react-icons/fa';
 import { ImMail4 } from 'react-icons/im';
+import { SiHashnode } from 'react-icons/si';
 
 export default function User({ user, profile }) {
   return (
-    <div className="flex flex-col p-4 py-12 custom-overlay">
+    <div className="sticky flex flex-col p-4 py-12 bg-white rounded-xl top-24">
       <section className="flex justify-center">
         <div
           id="profile-pic"
@@ -23,8 +23,8 @@ export default function User({ user, profile }) {
 
       <section className="py-6">
         <h2 className="text-xl font-bold text-center">{user?.name}</h2>
-        <p className="text-xs font-medium text-center mt-1">
-          {user?.tagline || 'Your Tagline Appear here'}
+        <p className="mt-1 text-xs font-medium text-center">
+          {/* {user?.tagline || 'Your Tagline Appear here'} */}
         </p>
       </section>
 
@@ -34,7 +34,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.github}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <FaGithub className="text-2xl" />
             </a>
@@ -45,7 +45,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.hashnode}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <SiHashnode className="text-2xl" />
             </a>
@@ -56,7 +56,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.linkedin}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <FaLinkedinIn className="text-2xl" />
             </a>
@@ -67,7 +67,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.mail}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <ImMail4 className="text-2xl" />
             </a>
@@ -78,7 +78,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.website}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <FaGlobe className="text-2xl" />
             </a>
@@ -89,7 +89,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.stackoverflow}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <FaStackOverflow className="text-2xl" />
             </a>
@@ -100,7 +100,7 @@ export default function User({ user, profile }) {
             <a
               target="_blan"
               href={profile?.twitter}
-              className="font-semibold border p-2 rounded-full hover:border-blue-500 cursor-pointer"
+              className="p-2 font-semibold border rounded-full cursor-pointer hover:border-blue-500"
             >
               <FaTwitter className="text-2xl" />
             </a>

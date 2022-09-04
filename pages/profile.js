@@ -9,12 +9,10 @@ export default function ProfilePage() {
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    // console.log(user);
     if (!user) return;
-    // console.log(user);
     const fetchData = async () => {
       try {
-        const { data } = await getProfile(user._id);
+        const { data } = await getProfile();
         setData(data?.data || {});
         console.log({ data });
       } catch (err) {
@@ -27,7 +25,7 @@ export default function ProfilePage() {
 
   return (
     <div className="pb-10 mt-20">
-      <Profile data={data} user={user} />
+      <Profile data={data} />
     </div>
   );
 }

@@ -1,18 +1,17 @@
-import React from 'react';
-import { Fragment } from 'react';
 import { Tab } from '@headlessui/react';
-import About from './About';
-import ProjectContent from '../Common/ProjectContent';
+import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import About from './About';
+import Articles from './Articles';
 import Edit from './Edit';
 import Timeline from './Timeline';
 
-export default function Tabs({ courses, projects, profile }) {
+export default function Tabs({ articles, profile }) {
   const { isAuth } = useSelector((state) => state.auth);
 
   return (
     <Tab.Group defaultIndex={0}>
-      <Tab.List className="flex justify-center border border-blue-300 bg-gray-50 rounded-xl border-opacity-10 md:gap-x-5">
+      <Tab.List className="flex justify-center bg-white border border-blue-300 rounded-xl border-opacity-20 md:gap-x-5">
         <Tab as={Fragment}>
           {({ selected }) => (
             <button
@@ -35,7 +34,7 @@ export default function Tabs({ courses, projects, profile }) {
                   : ''
               }`}
             >
-              Timeline
+              Articles
             </button>
           )}
         </Tab>
@@ -48,7 +47,7 @@ export default function Tabs({ courses, projects, profile }) {
                   : ''
               }`}
             >
-              Submissions
+              Timeline
             </button>
           )}
         </Tab>
@@ -74,10 +73,10 @@ export default function Tabs({ courses, projects, profile }) {
           <About profile={profile} />
         </Tab.Panel>
         <Tab.Panel>
-          <Timeline projects={projects} courses={courses} />
+          <Articles articles={articles} />
         </Tab.Panel>
         <Tab.Panel>
-          <ProjectContent projects={projects} cols={2} />
+          <Timeline articles={articles} />
         </Tab.Panel>
         {isAuth ? (
           <Tab.Panel>

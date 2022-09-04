@@ -61,7 +61,7 @@ const PostCard = ({ data }) => {
         <a className="inline-flex items-center">
           <img
             alt="blog"
-            src={`${data?.author?.cover || 'https://dummyimage.com/104x104'}`}
+            src={`${data?.author?.avatar || 'https://dummyimage.com/104x104'}`}
             className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
           />
           <span className="flex flex-col flex-grow pl-4">

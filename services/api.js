@@ -25,5 +25,7 @@ export const requestEmailVerification = () => api.get('/api/verify-email');
 export const createPost = (data) => api.post('/api/articles', data);
 export const getAllPost = () => api.get('/api/articles');
 export const getSinglePost = (slug) => api.get(`/api/articles/${slug}`);
+export const getProfile = () => api.get('/api/profile');
+export const updateProfile = (data) => api.put('/api/profile', data);
 
 export default api;
