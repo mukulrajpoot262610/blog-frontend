@@ -36,7 +36,7 @@ const ForgetPassowrd = () => {
       <div className="w-full p-6 lg:w-1/3">
         <a className="flex flex-col items-center gap-2">
           <img
-            alt="metrack-logo"
+            alt="logo"
             src="/logo.png"
             className="object-contain w-24 h-12"
           />

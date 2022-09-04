@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="relative flex flex-col items-center justify-center w-full min-h-screen lg:gap-20 lg:flex-row">
-      <div className="flex flex-col items-start justify-center w-full h-full lg:w-1/2">
+      <div className="flex flex-col mt-24 items-start justify-center w-full h-full lg:w-1/2">
         <h1 className="z-20 max-w-6xl text-4xl mb-4 font-bold md:text-6xl">
           Publishing Platform for professional bloggers
         </h1>
@@ -23,7 +23,7 @@ const Header = () => {
         <img
           alt="overlay"
           src="/hero.gif"
-          className="object-cover object-top w-full h-64 md:h-96 lg:h-full rounded-3xl"
+          className="object-cover object-top w-full rounded-3xl"
         />
       </div>
     </header>

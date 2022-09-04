@@ -35,18 +35,6 @@ const Explore = () => {
           />
 
           <h2 className="mt-4 uppercase text-sm font-bold">Top BlogPost</h2>
-
-          {/* <div className="mt-8 flex items-center justify-center flex-col">
-                    <div classcName="w-24 rounded-full border-2 p-2">
-                        <img src="https://placeimg.com/192/192/people" className='rounded-full w-24' />
-                    </div>
-                    <h2 className='mt-3 font-bold text-xl'>Mukul Rajpoot</h2>
-                    <h2 className='text-gray-400'>414 followers</h2>
-
-                    <div className='flex items-center mt-3'>
-                        <button className='text-xs font-bold border border-blue-300 btn btn-ghost hover:bg-blue-100 btn-sm rounded-full'>Follow</button>
-                    </div>
-                </div> */}
         </div>
       </div>
     </div>

@@ -39,16 +39,16 @@ const Register = () => {
       <div className="w-full p-6 lg:w-1/3">
         <a className="flex flex-col items-center gap-2 mb-2">
           <img
-            alt="metrack-logo"
+            alt="logo"
             src="/logo.png"
             className="object-contain w-24 h-12"
           />
           <h1 className="text-3xl font-bold tracking-tight text-center uppercase cursor-pointer">
-            Welcome to <span className="text-blue-500">ME</span>Blog
+            Welcome to SUDO
           </h1>
         </a>
         <p className="mb-4 text-xs text-center">
-          Join Meblog for Free and explore the new learing experience
+          Join SUDO for Free and explore the new blogging experience
         </p>
 
         <form onSubmit={handleSubmit(onSubmit)}>

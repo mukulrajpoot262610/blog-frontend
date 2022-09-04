@@ -161,11 +161,6 @@ const CreatePost = () => {
           >
             <HiOutlineEye className="text-md" /> Preview
           </button>
-          <button
-            className={`text-xs font-bold border btn btn-ghost hover:bg-blue-50 btn-sm flex items-center gap-1`}
-          >
-            <RiFootballLine className="text-md" /> Editor Guide
-          </button>
         </div>
 
         <hr />

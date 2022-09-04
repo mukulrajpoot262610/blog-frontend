@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <>
       <Head>
-        <title>MeTrack - Track your YouTube Learning</title>
+        <title>Sudo - Blogging platform for developers</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

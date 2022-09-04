@@ -39,10 +39,10 @@ export default function Navbar() {
               <img
                 alt="meblog-logo"
                 src="/logo.png"
-                className="object-contain w-12 h-6"
+                className="object-contain w-10"
               />
-              <h1 className="hidden font-bold tracking-tight uppercase cursor-pointer lg:block">
-                <span className="text-3xl text-blue-500">ME</span>Blog
+              <h1 className="hidden text-2xl font-bold tracking-tight uppercase cursor-pointer lg:block">
+                Sudo
               </h1>
             </a>
           </Link>
@@ -156,7 +156,7 @@ function Dropdown({ user, handleLogout }) {
             </div>
             <div className="px-1 py-1 ">
               <Menu.Item>
-                <CustomLink href="/dashboard/settings">
+                <CustomLink href="/settings">
                   <a className="flex items-center p-4 py-3 gap-x-4 hover:bg-blue-50 active:bg-blue-300 rounded-xl">
                     <BiCog className="text-base font-bold" />
                     Settings
