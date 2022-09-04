@@ -1,3 +1,4 @@
+import { formatDistance } from 'date-fns';
 import Link from 'next/link';
 import React from 'react';
 import { FiHeart } from 'react-icons/fi';
@@ -5,22 +6,26 @@ import { FiHeart } from 'react-icons/fi';
 const PostCard = ({ data }) => {
   return (
     <Link href={`/blogs/${data.slug}`}>
-      <div className="p-12 flex flex-col items-start cursor-pointer border-b">
-        <span className="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">
+      <div className="flex flex-col items-start p-12 border-b cursor-pointer">
+        <span className="inline-block px-2 py-1 text-xs font-medium tracking-widest text-indigo-500 rounded bg-indigo-50">
           CATEGORY
         </span>
-        <h2 className="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">
+        <h2 className="mt-4 mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
           {data.title}
         </h2>
         <div className="flex items-start gap-6 mb-4">
-          <p className="leading-relaxed mb-8">
+          <p className="flex-1 mb-8 leading-relaxed">
             Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal
             portland. VHS man braid palo santo hoodie brunch trust fund.
           </p>
-          <img src={data.cover} className="w-1/2 object-contain" />
+          <div className="flex flex-1">
+            <div className="flex items-start flex-1 overflow-hidden aspect-w-16 aspect-h-9">
+              <img src={data.cover} className="block object-cover h-full" />
+            </div>
+          </div>
         </div>
-        <div className="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full">
-          <a className="text-indigo-500 inline-flex items-center">
+        <div className="flex flex-wrap items-center w-full pb-4 mt-auto mb-4 border-b-2 border-gray-100">
+          <a className="inline-flex items-center text-indigo-500">
             Learn More
             <svg
               className="w-4 h-4 ml-2"
@@ -35,10 +40,10 @@ const PostCard = ({ data }) => {
               <path d="M12 5l7 7-7 7"></path>
             </svg>
           </a>
-          <span className="text-gray-400 mr-3 inline-flex items-center ml-auto leading-none text-sm pr-3 py-1 border-r-2 gap-1 border-gray-200">
+          <span className="inline-flex items-center gap-1 py-1 pr-3 ml-auto mr-3 text-sm leading-none text-gray-400 border-r-2 border-gray-200">
             <FiHeart /> 1.2K
           </span>
-          <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+          <span className="inline-flex items-center text-sm leading-none text-gray-400">
             <svg
               className="w-4 h-4 mr-1"
               stroke="currentColor"
@@ -56,15 +61,16 @@ const PostCard = ({ data }) => {
         <a className="inline-flex items-center">
           <img
             alt="blog"
-            src="https://dummyimage.com/104x104"
-            className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+            src={`${data?.author?.cover || 'https://dummyimage.com/104x104'}`}
+            className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
           />
-          <span className="flex-grow flex flex-col pl-4">
-            <span className="title-font font-medium text-gray-900">
-              Holden Caulfield
+          <span className="flex flex-col flex-grow pl-4">
+            <span className="font-medium text-gray-900 title-font">
+              {data?.author?.name || 'Author'}
             </span>
             <span className="text-gray-400 text-xs tracking-widest mt-0.5">
-              UI DEVELOPER
+              {formatDistance(new Date(Date.now()), new Date(data?.createdAt))}
+              {' ago'}
             </span>
           </span>
         </a>

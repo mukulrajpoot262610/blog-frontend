@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PostCard from '../components/card/postCard';
+import ExploreSidePanel from '../components/layout/ExploreSidePanel';
 import { getAllPost } from '../services/api';
 
 const Explore = () => {
@@ -19,23 +20,13 @@ const Explore = () => {
   }, []);
 
   return (
-    <div className="w-full grid gap-4 grid-cols-12 pt-20">
-      <div className="col-span-8 h-full">
+    <div className="grid w-full grid-cols-12 gap-4 pt-20">
+      <div className="h-full col-span-8">
         {posts.length > 0 &&
           posts.map((e) => <PostCard key={e._id} data={e} />)}
       </div>
-      <div className="col-span-4 h-full">
-        <div className="sticky top-24 bg-white p-8 rounded-lg">
-          <button className="text-xs font-bold border bg-blue-300 btn btn-ghost w-full rounded-full">
-            Write your Own Blog
-          </button>
-          <input
-            className="w-full rounded-full input input-bordered mt-8"
-            placeholder="Search"
-          />
-
-          <h2 className="mt-4 uppercase text-sm font-bold">Top BlogPost</h2>
-        </div>
+      <div className="h-full col-span-4">
+        <ExploreSidePanel />
       </div>
     </div>
   );

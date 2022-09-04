@@ -1,6 +1,8 @@
+import { formatDistance } from 'date-fns';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import BlogSidePanel from '../../components/layout/BlogSidePanel';
 import { getSinglePost } from '../../services/api';
 let Output = dynamic(() => import('editorjs-react-renderer'), { ssr: false });
 
@@ -75,41 +77,35 @@ const Blog = () => {
 
   console.log(post);
 
+  const date =
+    (post?.createdAt &&
+      formatDistance(new Date(Date.now()), new Date(post?.createdAt))) ||
+    'N/A';
+
   return (
-    <div className="w-full grid gap-4 grid-cols-12 pt-20">
-      <div className="col-span-8 h-full">
-        <h1 className="my-6 font-bold text-4xl">{post?.title}</h1>
-        <div className=" mx-auto mt-8">
+    <div className="grid w-full grid-cols-12 gap-4 pt-20">
+      <div className="h-full col-span-8 pt-4">
+        <div className="aspect-h-9 aspect-w-16">
+          <img
+            alt="blog"
+            src={`${post?.cover || 'https://dummyimage.com/104x104'}`}
+            className="block h-full rounded-xl"
+          />
+        </div>
+        <h1 className="my-6 text-4xl font-bold">{post?.title}</h1>
+        {post?.subtitle && (
+          <p className="text-lg font-light">{post.subtitle}</p>
+        )}
+        <p className="text-gray-400 text-xs font-light tracking-widest mt-0.5">
+          {date}
+          {' ago'}
+        </p>
+        <div className="mx-auto mt-8 ">
           {post && <Output style={style} data={JSON.parse(post?.content)} />}
         </div>
       </div>
-      <div className="col-span-4 h-full">
-        <div className="sticky top-24 bg-white p-8 rounded-lg">
-          <button className="text-xs font-bold border bg-blue-300 btn btn-ghost w-full rounded-full">
-            Write your Own Blog
-          </button>
-          <input
-            className="w-full rounded-full input input-bordered mt-8"
-            placeholder="Search"
-          />
-
-          <div className="mt-8 flex items-center justify-center flex-col">
-            <div classcName="w-24 rounded-full border-2 p-2">
-              <img
-                src="https://placeimg.com/192/192/people"
-                className="rounded-full w-24"
-              />
-            </div>
-            <h2 className="mt-3 font-bold text-xl">Mukul Rajpoot</h2>
-            <h2 className="text-gray-400">414 followers</h2>
-
-            <div className="flex items-center mt-3">
-              <button className="text-xs font-bold border border-blue-300 btn btn-ghost hover:bg-blue-100 btn-sm rounded-full">
-                Follow
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="h-full col-span-4">
+        <BlogSidePanel author={post?.author} />
       </div>
     </div>
   );

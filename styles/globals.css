@@ -8,3 +8,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #fafbff;
 }
+
+.container {
+  @apply max-w-[1440] mx-auto px-4;
+}
