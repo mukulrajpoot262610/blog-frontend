@@ -95,7 +95,7 @@ function Dropdown({ user, handleLogout }) {
               <div className="w-10 rounded-full ring-1 ring-blue-400 ring-offset-base-100 ring-offset-2">
                 <img
                   alt="avatar"
-                  src={user?.avatar ? user?.avatar : '/profile.png'}
+                  src={user?.avatar ? user?.avatar : '/profile.jpg'}
                   className="object-top"
                 />
               </div>
@@ -118,7 +118,7 @@ function Dropdown({ user, handleLogout }) {
                 <div className="w-20 rounded-full ring-1 ring-blue-400 ring-offset-base-100 ring-offset-2">
                   <img
                     alt="avatar"
-                    src={user?.avatar ? user?.avatar : '/profile.png'}
+                    src={user?.avatar ? user?.avatar : '/profile.jpg'}
                     className="object-top"
                   />
                 </div>

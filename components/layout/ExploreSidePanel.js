@@ -1,7 +1,17 @@
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ExploreSidePanel() {
+  const router = useRouter();
+  const query = router.query.search;
+  const [key, setKey] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?search=${key}`);
+  };
+
   return (
     <div className="sticky p-8 bg-white rounded-lg top-24">
       <Link href="/create">
@@ -9,10 +19,14 @@ export default function ExploreSidePanel() {
           Write your Own Blog
         </a>
       </Link>
-      <input
-        className="w-full mt-8 rounded-full input input-bordered"
-        placeholder="Search"
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+          className="w-full rounded-full input input-bordered mt-8"
+          placeholder="Search"
+        />
+      </form>
 
       <h2 className="mt-4 text-sm font-bold uppercase">Top BlogPost</h2>
     </div>

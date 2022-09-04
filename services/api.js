@@ -28,4 +28,10 @@ export const getSinglePost = (slug) => api.get(`/api/articles/${slug}`);
 export const getProfile = () => api.get('/api/profile');
 export const updateProfile = (data) => api.put('/api/profile', data);
 
+export const updateAvatar = (data) => api.post(`/api/set-avatar`, data);
+export const getUserPosts = (data) => api.get('/api/profile', data);
+export const getLikedArticle = (data) =>
+  api.get('/api/most-liked-articles', data);
+export const seacrh = (data) => api.post('/api/articles/search', data);
+
 export default api;

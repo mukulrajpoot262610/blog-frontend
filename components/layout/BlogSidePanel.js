@@ -1,7 +1,19 @@
+import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function BlogSidePanel({ author }) {
+  const router = useRouter();
+  const query = router.query.search;
+  const [key, setKey] = useState();
+
+  console.log(router.query);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/search?search=${key}`);
+  };
+
   return (
     <div className="sticky p-8 bg-white rounded-lg top-24">
       <Link href="/create">
@@ -9,10 +21,14 @@ export default function BlogSidePanel({ author }) {
           Write your Own Blog
         </a>
       </Link>
-      <input
-        className="w-full mt-8 rounded-full input input-bordered"
-        placeholder="Search"
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+          className="w-full rounded-full input input-bordered mt-8"
+          placeholder="Search"
+        />
+      </form>
 
       <div className="flex flex-col items-center justify-center mt-8">
         <div classcName="w-24 rounded-full border-2 p-2">
