@@ -23,7 +23,7 @@ const Register = () => {
     setLoading(true);
     try {
       const { data } = await signup(payload);
-      router.push('/dashboard');
+      router.push('/profile');
       toast.success('Registration Success 🎉');
       dispatch(setAuth(data));
     } catch (err) {
